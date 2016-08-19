@@ -38,6 +38,7 @@ public class SampleActivity extends Activity {
 				UserProfile profile = new UserProfile.Builder("TempUser_" + random.nextInt(100))
 						.setBirthYear(1970 + +random.nextInt(20))
 						.setGender(random.nextBoolean() ? UserProfile.USER_GENDER_MALE : UserProfile.USER_GENDER_FEMALE)
+						.setHmac("ABCDE")
 						.build();
 
 				BuzzScreen.getInstance().setUserProfile(profile);
