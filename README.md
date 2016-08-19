@@ -1,6 +1,9 @@
 # slidejoy-sdk
 
 ### SampleApplication
+	
+	
+~~~~
 
 public class SampleApplication extends Application {
 
@@ -17,7 +20,13 @@ public class SampleApplication extends Application {
 	}
 }
 
+	
+~~~~
+
 ### SampleActivity
+
+	
+~~~~
 
 public class SampleActivity extends Activity {
 
@@ -61,3 +70,5 @@ public class SampleActivity extends Activity {
 		});
 	}
 }
+	
+~~~~
