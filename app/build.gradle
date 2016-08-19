@@ -13,13 +13,13 @@ repositories {
 }
 
 android {
-    compileSdkVersion COMPILE_SDK_VERSION
-    buildToolsVersion project.BUILD_TOOLS_VERSION
+    compileSdkVersion compileSdkVersionValue
+    buildToolsVersion buildToolVersionValue
 
     defaultConfig {
         applicationId "com.slidejoy.sample"
         minSdkVersion 21
-        targetSdkVersion Integer.parseInt(project.BUILD_TARGET_VERSION)
+        targetSdkVersion buildTargetSdkVersionValue
         versionCode 1
         versionName "1.0"
         multiDexEnabled true

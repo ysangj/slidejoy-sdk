@@ -33,3 +33,9 @@ allprojects {
 subprojects {
     tasks.withType(Javadoc).all { enabled = false }
 }
+
+ext {
+    compileSdkVersionValue = 23
+    buildToolVersionValue = '23.0.3'
+    buildTargetSdkVersionValue = 23
+}
