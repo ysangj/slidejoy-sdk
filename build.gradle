@@ -10,12 +10,6 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
-        maven { url 'https://maven.fabric.io/public' }
-        maven { url "https://bitbucket.org/adscend/androidsdk/raw/master" }
-        maven {
-            name "Fyber's maven repo"
-            url "https://fyber.bintray.com/maven"
-        }
         maven {
             url 'https://dl.bintray.com/outbrainmobile/obsdk'
             credentials {
@@ -23,9 +17,7 @@ allprojects {
                 password = "adb1c1ae22255101ec2cf56f435a85879a349e5c"
             }
         }
-        maven {
-            url 'https://dl.bintray.com/urunimi/maven/'
-        }
+        maven { url 'https://dl.bintray.com/buzzvil/maven/' }
         flatDir dirs: 'fyber-advertising'
     }
 }

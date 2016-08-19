@@ -30,8 +30,11 @@ android {
             minifyEnabled false
         }
     }
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {
-    compile("com.slidejoy:sdk:0.1.10")
+    compile("com.buzzvil.buzzscreen:sdk:0.2.0")
 }
