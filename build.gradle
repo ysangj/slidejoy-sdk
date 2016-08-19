@@ -1,0 +1,66 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath("com.android.tools.build:gradle:2.1.2")
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        maven { url 'https://maven.fabric.io/public' }
+        maven { url "https://bitbucket.org/adscend/androidsdk/raw/master" }
+        maven {
+            name "Fyber's maven repo"
+            url "https://fyber.bintray.com/maven"
+        }
+        maven {
+            url 'https://dl.bintray.com/outbrainmobile/obsdk'
+            credentials {
+                username = "OutbrainPublishers"
+                password = "adb1c1ae22255101ec2cf56f435a85879a349e5c"
+            }
+        }
+        maven {
+            url 'https://dl.bintray.com/urunimi/maven/'
+        }
+        flatDir dirs: 'fyber-advertising'
+    }
+}
+
+subprojects {
+    tasks.withType(Javadoc).all { enabled = false }
+}
+
+
+ext {
+    COMPILE_SDK_VERSION = 23
+    BUILD_TOOLS_VERSION = '23.0.3'
+    MIN_SDK_VERSION = 23
+    TARGET_SDK_VERSION = 15
+
+    PLAY_SERVICES_VERSION = '8.4.0'
+    ANDROID_SUPPORT_VERSION = '24.0.0'
+    ANDROID_ANNOTATIONS_VERSION = '3.3.2'
+    LOMBOK_VERSION = '1.16.0'
+    FACEBOOK_SDK_VERSION = '4.9.0'
+    CODELAB_VERSION = '0.7.0'
+
+    bintrayRepo = 'maven'
+    publishedGroupId = 'com.slidejoy'
+
+    siteUrl = 'http://getslidejoy.com'
+    gitUrl = 'https://github.com/slidejoy/Slidejoy-SDK'
+
+    libraryVersion = '0.1.10'
+
+    developerId = 'slidejoy'
+    developerName = 'Pyungwoo Yoo'
+    developerEmail = 'hovan@hovans.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
