@@ -23,9 +23,9 @@
 				android:excludeFromRecents="true"
 				android:launchMode="singleTask"
 				android:screenOrientation="portrait"
-				android:taskAffinity="com.buzzvil.buzzscreen.sdk"
+				android:taskAffinity=":Lock"
 				android:theme="@style/Theme.Slidejoy.News"
-				android:process="com.buzzvil.buzzscreen.sdk">
+				android:process=":Lock">
 			<intent-filter>
 				<action android:name="android.intent.action.VIEW"/>
 				<category android:name="android.intent.category.DEFAULT"/>
