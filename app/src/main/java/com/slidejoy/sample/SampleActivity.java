@@ -11,14 +11,11 @@ import com.buzzvil.buzzscreen.sdk.UserProfile;
 import com.slidejoy.SlideIntent;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class SampleActivity extends Activity {
 
 	private View buttonStart, buttonStop, buttonLockscreen;
-	private Switch switchNotificationShortcuts, switchNews;
-
-	Random random = new Random();
+	private Switch switchNotificationShortcuts, switchNews, switchDefaultLockOnly;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -31,24 +28,29 @@ public class SampleActivity extends Activity {
 
 		switchNotificationShortcuts = (Switch) findViewById(R.id.switchNotificationShortcuts);
 		switchNews = (Switch) findViewById(R.id.switchNews);
+		switchDefaultLockOnly = (Switch) findViewById(R.id.switchDefaultLockOnly);
 
 		buttonStart.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				UserProfile profile = new UserProfile.Builder("TempUser_" + random.nextInt(100))
 						.setBirthYear(1970 + +random.nextInt(20))
+						.setHmac("srLzQ9jziHy2mJH6HSRehQ==")        // Optional
+						.setBirthYear(1984)
+						.setBirthday("1984-06-07")                    // Optional
 						.setGender(random.nextBoolean() ? UserProfile.USER_GENDER_MALE : UserProfile.USER_GENDER_FEMALE)
-						.setHmac("ABCDE")
 						.build();
 
 				BuzzScreen.getInstance().setUserProfile(profile);
 
 				ArrayList<String> defLocks = new ArrayList<>();
-				defLocks.add("default_lock_sample");    // You can manage default lock screens manually.
-				defLocks.add("default_lock_sdk");        //which is included in the SDK project.
+				defLocks.add("default_lock_sample");                // You can manage default lock screens manually.
+				defLocks.add("default_lock_sdk");                    // This resource is included in the SDK project.
 				BuzzScreen.getInstance().setOptions(new BuzzOptions.Builder().useNews(switchNews.isChecked())
 						.useNotificationShortcuts(switchNotificationShortcuts.isChecked())
+						.useDefaultLockscreenOnly(switchDefaultLockOnly.isChecked())
 						.setDefaultLockscreenResNames(defLocks).build());
+
 				BuzzScreen.getInstance().activate();
 			}
 		});
