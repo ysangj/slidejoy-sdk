@@ -34,7 +34,6 @@ public class SampleActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				UserProfile profile = new UserProfile.Builder("TempUser_" + random.nextInt(100))
-						.setBirthYear(1970 + +random.nextInt(20))
 						.setHmac("srLzQ9jziHy2mJH6HSRehQ==")        // Optional
 						.setBirthYear(1984)
 						.setBirthday("1984-06-07")                    // Optional
@@ -45,7 +44,7 @@ public class SampleActivity extends Activity {
 
 				ArrayList<String> defLocks = new ArrayList<>();
 				defLocks.add("default_lock_sample");                // You can manage default lock screens manually.
-				defLocks.add("default_lock_sdk");                    // This resource is included in the SDK project.
+				defLocks.add("default_lock_sdk");                // This resource is included in the SDK project.
 				BuzzScreen.getInstance().setOptions(new BuzzOptions.Builder().useNews(switchNews.isChecked())
 						.useNotificationShortcuts(switchNotificationShortcuts.isChecked())
 						.useDefaultLockscreenOnly(switchDefaultLockOnly.isChecked())
