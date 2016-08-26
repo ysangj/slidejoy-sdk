@@ -11,11 +11,12 @@ import com.buzzvil.buzzscreen.sdk.UserProfile;
 import com.slidejoy.SlideIntent;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class SampleActivity extends Activity {
-
 	private View buttonStart, buttonStop, buttonLockscreen;
 	private Switch switchNotificationShortcuts, switchNews, switchDefaultLockOnly;
+	Random random = new Random();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +26,6 @@ public class SampleActivity extends Activity {
 		buttonStart = findViewById(R.id.buttonStart);
 		buttonStop = findViewById(R.id.buttonStop);
 		buttonLockscreen = findViewById(R.id.buttonLockscreen);
-
 		switchNotificationShortcuts = (Switch) findViewById(R.id.switchNotificationShortcuts);
 		switchNews = (Switch) findViewById(R.id.switchNews);
 		switchDefaultLockOnly = (Switch) findViewById(R.id.switchDefaultLockOnly);
