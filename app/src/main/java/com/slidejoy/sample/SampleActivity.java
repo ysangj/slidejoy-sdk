@@ -34,7 +34,7 @@ public class SampleActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				UserProfile profile = new UserProfile.Builder("TempUser_" + random.nextInt(100))
-						.setHmac("srLzQ9jziHy2mJH6HSRehQ==")        // Optional
+//						.setHmac("srLzQ9jziHy2mJH6HSRehQ==")        // Optional
 						.setBirthYear(1984)
 						.setBirthday("1984-06-07")                    // Optional
 						.setGender(random.nextBoolean() ? UserProfile.USER_GENDER_MALE : UserProfile.USER_GENDER_FEMALE)
