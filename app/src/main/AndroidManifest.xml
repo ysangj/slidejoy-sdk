@@ -17,23 +17,6 @@
 				<category android:name="android.intent.category.LAUNCHER"/>
 			</intent-filter>
 		</activity>
-
-		<activity
-				android:name="com.buzzvil.buzzscreen.sdk.SimpleLockerActivity"
-				android:excludeFromRecents="true"
-				android:launchMode="singleTask"
-				android:screenOrientation="portrait"
-				android:taskAffinity=":Lock"
-				android:theme="@style/Theme.Slidejoy.News"
-				android:process=":Lock">
-			<intent-filter>
-				<action android:name="android.intent.action.VIEW"/>
-				<category android:name="android.intent.category.DEFAULT"/>
-				<data
-						android:scheme="slide"
-						android:host="lock"/>
-			</intent-filter>
-		</activity>
 	</application>
 
 </manifest>
