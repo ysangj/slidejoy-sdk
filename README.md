@@ -3,7 +3,7 @@
 - Buzzvil's library for integrating BuzzScreen with Android apps.
 - Requires Android version 4.1 (API level 16) or newer.
 
-### Add Library
+### 1. Add Library
 
 - Add to build.gradle:
 
@@ -23,7 +23,7 @@ dependencies {
 ```
 
 
-### Application class
+### 2. Application class
 
 - Add `BuzzScreen.getInstance().init("APP_KEY", this)` to onCreate in your Application class.
 - Don't use multi threading or call from outside of onCreate() because SDK needs the application context at the first time.
@@ -39,7 +39,10 @@ public class SampleApplication extends Application {
 }
 ```
 
-### Activity class
+### 3. Activity class
+
+- Provide UserProfile and BuzzOptions to SDK.
+- Call activate(), then SDK will start a service and show lockscreen.
 
 #### Set UserProfile
 
