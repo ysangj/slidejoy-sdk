@@ -47,14 +47,14 @@ public class SampleApplication extends Application {
 - Birth Year / Birthday / Gender / Hmac
 
 ```java
-				UserProfile profile = new UserProfile.Builder("TempUser_" + random.nextInt(100))
-						.setBirthYear(1970 + +random.nextInt(20))
-						.setGender(random.nextBoolean() ? UserProfile.USER_GENDER_MALE : UserProfile.USER_GENDER_FEMALE)
-						.setHmac("ABCDE")
-						.setBirthday("1984-06-07")
-						.build();
+UserProfile profile = new UserProfile.Builder("TempUser_" + random.nextInt(100))
+	.setBirthYear(1970 + +random.nextInt(20))
+	.setGender(random.nextBoolean() ? UserProfile.USER_GENDER_MALE : UserProfile.USER_GENDER_FEMALE)
+	.setHmac("ABCDE")
+	.setBirthday("1984-06-07")
+	.build();
 						
-				BuzzScreen.getInstance().setUserProfile(profile);
+BuzzScreen.getInstance().setUserProfile(profile);
 ```
 
 #### Set BuzzOptions
@@ -64,18 +64,18 @@ public class SampleApplication extends Application {
 - Default lock images resources / Use default lock only
 	
 ```java
-				ArrayList<String> defLocks = new ArrayList<>();
-				defLocks.add("default_lock_sample");    // You can manage default lock screens manually.
-				defLocks.add("default_lock_sdk");        //which is included in the SDK project.
-				BuzzScreen.getInstance().setOptions(new BuzzOptions.Builder().useNews(switchNews.isChecked())
-						.useNotificationShortcuts(switchNotificationShortcuts.isChecked())
-						.setDefaultLockscreenResNames(defLocks).build());
-						.useDefaultLockscreenOnly(switchDefaultLockOnly.isChecked())
+ArrayList<String> defLocks = new ArrayList<>();
+defLocks.add("default_lock_sample");    // You can manage default lock screens manually.
+defLocks.add("default_lock_sdk");        //which is included in the SDK project.
+BuzzScreen.getInstance().setOptions(new BuzzOptions.Builder().useNews(switchNews.isChecked())
+	.useNotificationShortcuts(switchNotificationShortcuts.isChecked())
+	.setDefaultLockscreenResNames(defLocks).build());
+	.useDefaultLockscreenOnly(switchDefaultLockOnly.isChecked())
 						
 ```
 
 #### Start lock screen service
 
 ```java
-				BuzzScreen.getInstance().activate();
+BuzzScreen.getInstance().activate();
 ```
