@@ -1,21 +1,35 @@
-# slidejoy-sdk
+# Buzzscreen SDK for slidejoy publishers
+
+- Buzzvil's library for integrating BuzzScreen with Android apps.
+- Requires Android version 4.1 (API level 16) or newer.
+
+### Add Library
+
+- Add to build.gradle:
+
+```
+allprojects {
+    repositories {
+        jcenter()
+        maven { url 'https://dl.bintray.com/buzzvil/maven/' }
+    }
+}
 
 
-## Requirements
+dependencies {
+    compile("com.buzzvil.buzzscreen:sdk:+")
+}
 
-### SampleApplication
+```
 
-- MultiDex.install(this)
-- BuzzScreen.getInstance().init("APP_KEY", this);
-~~~~
 
+### Application class
+
+- Add `BuzzScreen.getInstance().init("APP_KEY", this)` to onCreate in your Application class.
+- Don't use multi threading or call from outside of onCreate() because SDK needs the application context at the first time.
+
+```java
 public class SampleApplication extends Application {
-
-	@Override
-	protected void attachBaseContext(Context base) {
-		super.attachBaseContext(base);
-		MultiDex.install(this);
-	}
 
 	@Override
 	public void onCreate() {
@@ -23,18 +37,16 @@ public class SampleApplication extends Application {
 		BuzzScreen.getInstance().init("APP_KEY", this);
 	}
 }
+```
 
-	
-~~~~
-
-### SampleActivity
+### Activity class
 
 #### Set UserProfile
 
 - UserID should be provided.
 - Birth Year / Birthday / Gender / Hmac
 
-~~~~
+```java
 				UserProfile profile = new UserProfile.Builder("TempUser_" + random.nextInt(100))
 						.setBirthYear(1970 + +random.nextInt(20))
 						.setGender(random.nextBoolean() ? UserProfile.USER_GENDER_MALE : UserProfile.USER_GENDER_FEMALE)
@@ -43,7 +55,7 @@ public class SampleApplication extends Application {
 						.build();
 						
 				BuzzScreen.getInstance().setUserProfile(profile);
-~~~~
+```
 
 #### Set BuzzOptions
 
@@ -51,7 +63,7 @@ public class SampleApplication extends Application {
 - Use Notification and Shortcuts
 - Default lock images resources / Use default lock only
 	
-~~~~
+```java
 				ArrayList<String> defLocks = new ArrayList<>();
 				defLocks.add("default_lock_sample");    // You can manage default lock screens manually.
 				defLocks.add("default_lock_sdk");        //which is included in the SDK project.
@@ -60,10 +72,10 @@ public class SampleApplication extends Application {
 						.setDefaultLockscreenResNames(defLocks).build());
 						.useDefaultLockscreenOnly(switchDefaultLockOnly.isChecked())
 						
-~~~~
+```
 
 #### Start lock screen service
 
-~~~~
+```java
 				BuzzScreen.getInstance().activate();
-~~~~
+```
