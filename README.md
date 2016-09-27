@@ -41,8 +41,8 @@ public class SampleApplication extends Application {
 
 ### 3. Activity class
 
-- Provide UserProfile and BuzzOptions to SDK.
-- Call activate(), then SDK will start a service and show lockscreen.
+* Provide UserProfile and BuzzOptions to SDK.
+* Call activate(), then SDK will start a service and show lockscreen.
 
 #### Set UserProfile
 
