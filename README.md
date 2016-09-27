@@ -3,7 +3,7 @@
 - Buzzvil's library for integrating BuzzScreen with Android apps.
 - Requires Android version 4.1 (API level 16) or newer.
 
-### 1. Add Library
+### 1. Add library
 
 - Add to build.gradle:
 
