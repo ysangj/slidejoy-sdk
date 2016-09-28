@@ -25,6 +25,8 @@ dependencies {
 
 ### 2. Application class
 
+[SampleApplication](https://github.com/Buzzvil/slidejoy-sdk/blob/master/app/src/main/java/com/slidejoy/sample/SampleApplication.java)
+
 - Add `BuzzScreen.getInstance().init("APP_KEY", this)` to onCreate in your Application class.
 - Don't use multi threading or call from outside of onCreate() because SDK needs the application context at the first time.
 
@@ -39,7 +41,12 @@ public class SampleApplication extends Application {
 }
 ```
 
+
+
 ### 3. Activity class
+
+[SampleActivity](https://github.com/Buzzvil/slidejoy-sdk/blob/master/app/src/main/java/com/slidejoy/sample/SampleActivity.java)
+
 
 1. Provide UserProfile and BuzzOptions to SDK.
 2. Call activate(), then SDK will start a service and show lockscreen.
