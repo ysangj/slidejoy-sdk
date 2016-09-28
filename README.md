@@ -7,7 +7,7 @@
 
 - Add to build.gradle:
 
-```
+```groovy
 allprojects {
     repositories {
         jcenter()
@@ -41,10 +41,10 @@ public class SampleApplication extends Application {
 
 ### 3. Activity class
 
-* Provide UserProfile and BuzzOptions to SDK.
-* Call activate(), then SDK will start a service and show lockscreen.
+1. Provide UserProfile and BuzzOptions to SDK.
+2. Call activate(), then SDK will start a service and show lockscreen.
 
-#### Set UserProfile
+#### 3.1. Set UserProfile
 
 - UserID should be provided.
 - Birth Year / Birthday / Gender / Hmac
@@ -60,7 +60,7 @@ UserProfile profile = new UserProfile.Builder("TempUser_" + random.nextInt(100))
 BuzzScreen.getInstance().setUserProfile(profile);
 ```
 
-#### Set BuzzOptions
+#### 3.2. Set BuzzOptions
 
 - Use News
 - Use Notification and Shortcuts
@@ -77,8 +77,14 @@ BuzzScreen.getInstance().setOptions(new BuzzOptions.Builder().useNews(switchNews
 						
 ```
 
-#### Start lock screen service
+#### 3.3. Start lock screen service
 
 ```java
 BuzzScreen.getInstance().activate();
+```
+
+#### 3.4. Stop lock screen service
+
+```java
+BuzzScreen.getInstance().deactivate();
 ```
