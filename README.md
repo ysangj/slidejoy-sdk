@@ -95,3 +95,7 @@ BuzzScreen.getInstance().activate();
 ```java
 BuzzScreen.getInstance().deactivate();
 ```
+
+### 4. Proguard
+
+[proguard-rules.pro](https://github.com/Buzzvil/slidejoy-sdk/blob/master/proguard-rules.pro)
