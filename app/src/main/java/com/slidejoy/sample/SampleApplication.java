@@ -4,6 +4,9 @@ import android.app.Application;
 import android.content.Context;
 import android.support.multidex.MultiDex;
 import com.buzzvil.buzzscreen.sdk.BuzzScreen;
+import com.google.gson.Gson;
+
+import java.util.Map;
 
 /**
  * SampleApplication.java
@@ -22,5 +25,19 @@ public class SampleApplication extends Application {
 	public void onCreate() {
 		super.onCreate();
 		BuzzScreen.getInstance().init("532421441328966", this);
+
+		BuzzScreen.getInstance().setLockscreenEventListener(lockEventListner);
 	}
+
+	private BuzzScreen.OnLockEventListner lockEventListner = new BuzzScreen.OnLockEventListner() {
+		@Override
+		public void onImpression(Map<String, Object> ad) {
+			System.out.println(new Gson().toJson(ad));
+		}
+
+		@Override
+		public void onClick(Map<String, Object> ad) {
+			System.out.println(new Gson().toJson(ad));
+		}
+	};
 }

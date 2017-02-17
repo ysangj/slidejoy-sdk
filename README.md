@@ -28,8 +28,10 @@ dependencies {
 
 [SampleApplication](https://github.com/Buzzvil/slidejoy-sdk/blob/master/app/src/main/java/com/slidejoy/sample/SampleApplication.java)
 
-- Add `BuzzScreen.getInstance().init("APP_KEY", this)` to onCreate in your Application class.
-- Don't use multi threading or call from outside of onCreate() because SDK needs the application context at the first time.
+#### 2.1. Init SDK
+
+1. Add `BuzzScreen.getInstance().init("APP_KEY", this)` to onCreate in your Application class.
+2. Don't use multi threading or call from outside of onCreate() because SDK needs the application context at the first time.
 
 ```java
 public class SampleApplication extends Application {
@@ -42,7 +44,21 @@ public class SampleApplication extends Application {
 }
 ```
 
+#### 2.2. Register callback for impression tracking (Optional)
 
+```java
+BuzzScreen.getInstance().setLockscreenEventListener(new BuzzScreen.OnLockEventListner() {
+    @Override
+    public void onImpression(Map<String, Object> ad) {
+        // ref)https://docs.google.com/spreadsheets/d/12pWkgO9i-FnH7-6AS2inlWiLeRAfK5SP8U5ATXQX3sU/edit?usp=sharing
+    }
+
+    @Override
+    public void onClick(Map<String, Object> ad) {
+        // ref)https://docs.google.com/spreadsheets/d/12pWkgO9i-FnH7-6AS2inlWiLeRAfK5SP8U5ATXQX3sU/edit?usp=sharing
+    }
+});
+```
 
 ### 3. Activity class
 
@@ -95,22 +111,6 @@ BuzzScreen.getInstance().activate();
 
 ```java
 BuzzScreen.getInstance().deactivate();
-```
-
-#### 3.5. Register callback for impression tracking
-
-```java
-BuzzScreen.getInstance().setLockscreenEventListener(new BuzzScreen.OnLockEventListner() {
-    @Override
-    public void onImpression(Map<String, Object> ad) {
-        // ref)https://docs.google.com/spreadsheets/d/12pWkgO9i-FnH7-6AS2inlWiLeRAfK5SP8U5ATXQX3sU/edit?usp=sharing
-    }
-
-    @Override
-    public void onClick(Map<String, Object> ad) {
-        // ref)https://docs.google.com/spreadsheets/d/12pWkgO9i-FnH7-6AS2inlWiLeRAfK5SP8U5ATXQX3sU/edit?usp=sharing
-    }
-});
 ```
 
 ### 4. Proguard
