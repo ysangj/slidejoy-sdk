@@ -6,12 +6,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.Switch;
+
+import com.buzzvil.buzzscreen.sdk.BuzzIntent;
 import com.buzzvil.buzzscreen.sdk.BuzzOptions;
 import com.buzzvil.buzzscreen.sdk.BuzzScreen;
 import com.buzzvil.buzzscreen.sdk.UserProfile;
-import com.slidejoy.SlideIntent;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Random;
 
 public class SampleActivity extends Activity implements CompoundButton.OnCheckedChangeListener {
@@ -59,13 +62,15 @@ public class SampleActivity extends Activity implements CompoundButton.OnChecked
 		buttonLockscreen.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				sendBroadcast(new Intent(SlideIntent.START_LOCK));
+				sendBroadcast(new Intent(BuzzIntent.START_LOCK));
 			}
 		});
 
 		switchNotificationShortcuts.setOnCheckedChangeListener(this);
 		switchNews.setOnCheckedChangeListener(this);
 		switchDefaultLockOnly.setOnCheckedChangeListener(this);
+
+		BuzzScreen.getInstance().setLockscreenEventListener(lockEventListner);
 	}
 
 	@Override
@@ -78,4 +83,16 @@ public class SampleActivity extends Activity implements CompoundButton.OnChecked
 				.useDefaultLockscreenOnly(switchDefaultLockOnly.isChecked())
 				.setDefaultLockscreenResNames(defLocks).build());
 	}
+
+	BuzzScreen.OnLockEventListner lockEventListner = new BuzzScreen.OnLockEventListner() {
+		@Override
+		public void onImpression(Map<String, Object> ad) {
+			System.out.println(new Gson().toJson(ad));
+		}
+
+		@Override
+		public void onClick(Map<String, Object> ad) {
+			System.out.println(new Gson().toJson(ad));
+		}
+	};
 }

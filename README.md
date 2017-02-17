@@ -97,6 +97,22 @@ BuzzScreen.getInstance().activate();
 BuzzScreen.getInstance().deactivate();
 ```
 
+#### 3.5. Register callback for impression tracking
+
+```java
+BuzzScreen.getInstance().setLockscreenEventListener(new BuzzScreen.OnLockEventListner() {
+    @Override
+    public void onImpression(Map<String, Object> ad) {
+        // ref)https://docs.google.com/spreadsheets/d/12pWkgO9i-FnH7-6AS2inlWiLeRAfK5SP8U5ATXQX3sU/edit?usp=sharing
+    }
+
+    @Override
+    public void onClick(Map<String, Object> ad) {
+        // ref)https://docs.google.com/spreadsheets/d/12pWkgO9i-FnH7-6AS2inlWiLeRAfK5SP8U5ATXQX3sU/edit?usp=sharing
+    }
+});
+```
+
 ### 4. Proguard
 
 [proguard-rules.pro](https://github.com/Buzzvil/slidejoy-sdk/blob/master/proguard-rules.pro)
