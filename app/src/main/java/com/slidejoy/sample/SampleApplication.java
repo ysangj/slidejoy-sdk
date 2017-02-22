@@ -26,10 +26,10 @@ public class SampleApplication extends Application {
 		super.onCreate();
 		BuzzScreen.getInstance().init("532421441328966", this);
 
-		BuzzScreen.getInstance().setLockscreenEventListener(lockEventListner);
+		BuzzScreen.getInstance().setLockscreenEventListener(lockEventListener);
 	}
 
-	private BuzzScreen.OnLockEventListner lockEventListner = new BuzzScreen.OnLockEventListner() {
+	private BuzzScreen.OnLockEventListener lockEventListener = new BuzzScreen.OnLockEventListener() {
 		@Override
 		public void onImpression(Map<String, Object> ad) {
 			System.out.println(new Gson().toJson(ad));
