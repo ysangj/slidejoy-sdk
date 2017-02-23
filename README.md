@@ -12,7 +12,6 @@ allprojects {
     repositories {
         jcenter()
         maven { url 'https://dl.bintray.com/buzzvil/maven/' }
-        maven { url 'https://dl.bintray.com/urunimi/maven/' }
     }
 }
 
@@ -47,7 +46,7 @@ public class SampleApplication extends Application {
 #### 2.2. Register callback for impression tracking (Optional)
 
 ```java
-BuzzScreen.getInstance().setLockscreenEventListener(new BuzzScreen.OnLockEventListner() {
+BuzzScreen.getInstance().init("APP_KEY", this, new BuzzScreen.OnLockEventListner() {
     @Override
     public void onImpression(Map<String, Object> ad) {
         // ref)https://docs.google.com/spreadsheets/d/12pWkgO9i-FnH7-6AS2inlWiLeRAfK5SP8U5ATXQX3sU/edit?usp=sharing
