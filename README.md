@@ -48,12 +48,12 @@ public class SampleApplication extends Application {
 ```java
 BuzzScreen.getInstance().init("APP_KEY", this, new BuzzScreen.OnLockEventListner() {
     @Override
-    public void onImpression(Map<String, Object> ad) {
+    public void onImpression(Bundle bundle) {
         // ref)https://docs.google.com/spreadsheets/d/12pWkgO9i-FnH7-6AS2inlWiLeRAfK5SP8U5ATXQX3sU/edit?usp=sharing
     }
 
     @Override
-    public void onClick(Map<String, Object> ad) {
+    public void onClick(Bundle bundle) {
         // ref)https://docs.google.com/spreadsheets/d/12pWkgO9i-FnH7-6AS2inlWiLeRAfK5SP8U5ATXQX3sU/edit?usp=sharing
     }
 });
