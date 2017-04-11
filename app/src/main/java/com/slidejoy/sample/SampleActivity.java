@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.Switch;
-
 import com.buzzvil.buzzscreen.sdk.BuzzIntent;
 import com.buzzvil.buzzscreen.sdk.BuzzOptions;
 import com.buzzvil.buzzscreen.sdk.BuzzScreen;
@@ -38,7 +37,7 @@ public class SampleActivity extends Activity implements CompoundButton.OnChecked
 			public void onClick(View v) {
 				UserProfile profile = new UserProfile.Builder("TempUser_" + random.nextInt(100))
 //						.setHmac("srLzQ9jziHy2mJH6HSRehQ==")        // Optional
-						.setBirthYear(1984)
+//						.setBirthYear(1984)
 						.setBirthday("1984-06-07")                    // Optional
 						.setGender(random.nextBoolean() ? UserProfile.USER_GENDER_MALE : UserProfile.USER_GENDER_FEMALE)
 						.build();
