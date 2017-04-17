@@ -17,7 +17,7 @@ allprojects {
 
 
 dependencies {
-    compile("com.buzzvil.buzzscreen:sdk:+")
+    compile("com.buzzvil.buzzscreen:sdk:1.4.+")
 }
 
 ```
@@ -46,17 +46,23 @@ public class SampleApplication extends Application {
 #### 2.2. Register callback for impression tracking (Optional)
 
 ```java
-BuzzScreen.getInstance().init("APP_KEY", this, new BuzzScreen.OnLockEventListner() {
-    @Override
-    public void onImpression(Bundle bundle) {
-        // ref)https://docs.google.com/spreadsheets/d/12pWkgO9i-FnH7-6AS2inlWiLeRAfK5SP8U5ATXQX3sU/edit?usp=sharing
-    }
+// An activity class which inherited the SimpleLockerActivity
+@Override
+public void onCreate(Bundle savedInstanceState) {
+	super.onCreate(savedInstanceState);
 
-    @Override
-    public void onClick(Bundle bundle) {
-        // ref)https://docs.google.com/spreadsheets/d/12pWkgO9i-FnH7-6AS2inlWiLeRAfK5SP8U5ATXQX3sU/edit?usp=sharing
-    }
-});
+	setOnTrackingListener(new OnTrackingListener() {
+		@Override
+		public void onImpression(Bundle bundle) {
+			// ref)https://docs.google.com/spreadsheets/d/12pWkgO9i-FnH7-6AS2inlWiLeRAfK5SP8U5ATXQX3sU/edit?usp=sharing
+		}
+
+		@Override
+		public void onClick(Bundle bundle) {
+			// ref)https://docs.google.com/spreadsheets/d/12pWkgO9i-FnH7-6AS2inlWiLeRAfK5SP8U5ATXQX3sU/edit?usp=sharing
+		}
+	});
+}
 ```
 
 ### 3. Activity class
