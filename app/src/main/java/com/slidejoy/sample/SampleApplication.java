@@ -25,30 +25,6 @@ public class SampleApplication extends Application {
 	@Override
 	public void onCreate() {
 		super.onCreate();
-		BuzzScreen.getInstance().init("532421441328966", this, lockEventListener);
-	}
-
-	BuzzScreen.OnLockEventListener lockEventListener = new BuzzScreen.OnLockEventListener() {
-		@Override
-		public void onClick(Bundle bundle) {
-			Log.d(TAG, "onClick()");
-			printBundle(bundle);
-		}
-
-		@Override
-		public void onImpression(Bundle bundle) {
-			Log.d(TAG, "onImpression()");
-			printBundle(bundle);
-		}
-	};
-
-	void printBundle(Bundle bundle) {
-		for (String key : bundle.keySet()) {
-			Object value = bundle.get(key);
-			if (value != null) {
-				Log.d(TAG, String.format("%s %s (%s)", key,
-						value.toString(), value.getClass().getName()));
-			}
-		}
+		BuzzScreen.getInstance().init("532421441328966", this);
 	}
 }

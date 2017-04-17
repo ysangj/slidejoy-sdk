@@ -18,21 +18,21 @@
 			</intent-filter>
 		</activity>
 
-		<!--<activity-->
-		<!--android:name=".CustomLockActivity"-->
-		<!--android:excludeFromRecents="true"-->
-		<!--android:launchMode="singleTask"-->
-		<!--android:screenOrientation="portrait"-->
-		<!--android:taskAffinity=""-->
-		<!--android:theme="@style/Theme.Slidejoy.News">-->
-		<!--<intent-filter>-->
-		<!--<action android:name="android.intent.action.VIEW"/>-->
-		<!--<category android:name="android.intent.category.DEFAULT"/>-->
-		<!--<data-->
-		<!--android:scheme="slide"-->
-		<!--android:host="lock"/>-->
-		<!--</intent-filter>-->
-		<!--</activity>-->
+		<activity
+			android:name=".CustomLockActivity"
+			android:excludeFromRecents="true"
+			android:launchMode="singleTask"
+			android:screenOrientation="portrait"
+			android:taskAffinity=""
+			android:theme="@style/Theme.Slidejoy.News">
+			<intent-filter>
+				<action android:name="android.intent.action.VIEW"/>
+				<category android:name="android.intent.category.DEFAULT"/>
+				<data
+					android:scheme="slide"
+					android:host="lock"/>
+			</intent-filter>
+		</activity>
 	</application>
 
 </manifest>
