@@ -80,7 +80,7 @@ public void onCreate(Bundle savedInstanceState) {
 
 ```java
 UserProfile profile = new UserProfile.Builder("TempUser_" + random.nextInt(100))
-	.setBirthYear(1970 + +random.nextInt(20))
+	.setBirthYear(1970 + random.nextInt(20))
 	.setGender(random.nextBoolean() ? UserProfile.USER_GENDER_MALE : UserProfile.USER_GENDER_FEMALE)
 	.setHmac("ABCDE")
 	.setBirthday("1984-06-07")
