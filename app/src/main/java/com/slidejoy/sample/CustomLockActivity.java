@@ -2,14 +2,15 @@ package com.slidejoy.sample;
 
 import android.os.Bundle;
 import android.util.Log;
-import com.buzzvil.buzzscreen.sdk.SimpleLockerActivity;
+
+import com.buzzvil.buzzscreen.sdk.ui.lock.LockActivity;
 
 /**
  * CustomLockActivity.java
  * <p>
  * Created by Ben on 4/11/17.
  */
-public class CustomLockActivity extends SimpleLockerActivity {
+public class CustomLockActivity extends LockActivity {
 
 	private static final String TAG = CustomLockActivity.class.getSimpleName();
 
@@ -27,10 +28,18 @@ public class CustomLockActivity extends SimpleLockerActivity {
 			public void onClick(Bundle bundle) {
 				printBundle(bundle);
 			}
+
+			@Override
+			public void onFail(Bundle bundle) {
+				printBundle(bundle);
+			}
 		});
 	}
 
 	void printBundle(Bundle bundle) {
+		if (bundle.getInt("adId", 0) < 0) {
+			Log.d(TAG, "Offline image");
+		}
 		for (String key : bundle.keySet()) {
 			Object value = bundle.get(key);
 			Log.d(TAG, String.format("%s %s (%s)", key,
