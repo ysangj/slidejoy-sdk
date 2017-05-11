@@ -61,6 +61,11 @@ public void onCreate(Bundle savedInstanceState) {
 		public void onClick(Bundle bundle) {
 			// ref)https://docs.google.com/spreadsheets/d/12pWkgO9i-FnH7-6AS2inlWiLeRAfK5SP8U5ATXQX3sU/edit?usp=sharing
 		}
+
+		@Override
+		public void onFail(Bundle bundle) {
+			// ref)https://docs.google.com/spreadsheets/d/12pWkgO9i-FnH7-6AS2inlWiLeRAfK5SP8U5ATXQX3sU/edit?usp=sharing
+		}
 	});
 }
 ```
